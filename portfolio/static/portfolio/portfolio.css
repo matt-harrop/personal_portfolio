@@ -28,3 +28,7 @@ form label {
 .green-text {
     color: #185718
 }
+
+.gray-text {
+    color: lightgray;
+}
