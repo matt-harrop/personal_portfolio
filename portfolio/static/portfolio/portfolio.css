@@ -1,0 +1,22 @@
+.intro {
+    height: 100vh;
+    width: 100vw;
+    background: url("brown_background.jpg") no-repeat;
+    background-size: cover;
+}
+
+#intro-text-container {
+    height: 100%;
+}
+
+#experience {
+    background-color: antiquewhite;
+}
+
+#contact {
+    background-color: dimgray;
+}
+
+form label {
+    color: white;
+}

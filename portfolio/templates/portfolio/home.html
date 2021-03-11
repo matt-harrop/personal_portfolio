@@ -1,0 +1,182 @@
+{% extends 'portfolio/base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="intro">
+    <div class="container" id="intro-text-container">
+        <div class="row align-items-center my-auto" style="height: 100%">
+            <div class="col-6 mx-auto">
+                <h1 class="display-4 text-light text-center">Matthew Harrop</h1>
+                <hr class="text-white my-3" style="height: 2px">
+                <p class="text-white text-center">Developer</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="about" class="py-4">
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <h1 class="display-4 text-center my-0">
+                About
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <hr class="my-0">
+                <div class="row my-5">
+                    <div class="col-8">
+                        <p class="text-center">
+                            I am a technical guy who got a job in the IT department of the bank I was working at while putting off taking the MCAT and applying to medical school. I found that I had a lot more interest in working in computer systems and writing code than my studies and was fortunate enough to impress someone in IT enough that they recommended I take their analyst position when they got promoted.
+                        </p>
+                        <p>I have now worked as a systems analyst, an applications engineer, and now even have the uncommon privilege of working on an IBM Power System. I worked as a developer briefly and am finishing up my master's in software engineering, and looking forward to working through the list of personal software projects that I've come up with over the last few years.</p>
+                    </div>
+                    <div class="col-4">
+                        <img src="{% static 'portfolio/mharrop2.png' %}" alt="" style="width: 100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="experience" class="container-fluid py-4">
+    <div class="row my-4">
+        <h1 class="display-4 text-center my-0">
+            Experience
+        </h1>
+    </div>
+    <div class="col-8 mx-auto">
+        <hr>
+        <div class="row">
+            <h1 class="display-5 my-5">
+                Work
+            </h1>
+        </div>
+        {% for experience in experiences %}
+            {% if experience.type == "work" %}
+                <div class="row mb-5">
+                    <div class="col-4">
+                        <p><b>{{ experience.institution}}</b></p>
+                        <p>{{ experience.start_date|date:"M Y" }} - {{ experience.end_date|date:"M Y"  }}</p>
+                    </div>
+                    <div class="col-8">
+                        <p><b>{{ experience.title }}</b></p>
+                        <p>{{ experience.description }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="row">
+            <hr>
+            <h1 class="display-5 my-5">
+                Education
+            </h1>
+        </div>
+        {% for experience in experiences %}
+            {% if experience.type == "education" %}
+                <div class="row mb-5">
+                    <div class="col-4">
+                        <p><b>{{ experience.institution}}</b></p>
+                        <p>{{ experience.start_date|date:"M Y" }} - {{ experience.end_date|date:"M Y"  }}</p>
+                    </div>
+                    <div class="col-8">
+                        <p><b>{{ experience.title }}</b></p>
+                        <p>{{ experience.description }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div id="projects" class="container-fluid py-4">
+    <div class="row mb-4 my-4">
+        <h1 class="display-4 text-center my-0">
+            Projects
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <hr class="my-0">
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-6">
+                        <h2>
+                            {{ project.title }}
+                        </h2>
+                        <p>
+                            {{ project.description }}
+                        </p>
+                        <img src="{{ project.image.url }}" alt="[{{ project.image }}]"/>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contact" class="container-fluid">
+    <div class="row mb-4 my-4 pt-4">
+        <h1 class="display-4 text-center text-white">
+            Contact
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <hr class="my-0">
+            <div class="row py-5">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ message_form.non_field_errors }}
+                    <div class="row">
+
+                        <div class="fieldWrapper col-6 d-inline">
+                            {{ message_form.first_name.errors }}
+                            {#                        <label for="{{ message_form.first_name.id_for_label }}">First Name:</label>#}
+                            {{ message_form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="fieldWrapper col-6 d-inline">
+                            {{ message_form.last_name.errors }}
+                            {#                        <label for="{{ message_form.last_name.id_for_label }}">Last Name:</label>#}
+                            {{ message_form.last_name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="fieldWrapper form-group">
+                        {{ message_form.email_address.errors }}
+{#                        <label for="{{ message_form.email_address.id_for_label }}">Email:</label>#}
+                        {{ message_form.email_address|as_crispy_field }}
+                    </div>
+                    <div class="fieldWrapper form-group">
+                        {{ message_form.content.errors }}
+{#                        <label for="{{ message_form.content.id_for_label }}">Your Message:</label>#}
+                        {{ message_form.content|as_crispy_field }}
+                    </div>
+                        <input type="submit" value="Submit" class="btn btn-dark mt-3">
+
+{#                    {{ message_form|crispy }}#}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#<h1>This is the home page.</h1>#}
+{#<a href="{% url 'blog:blog_home'  %}">Blog</a>#}
+{#<a href="{% static 'portfolio/MatthewHarrop_Resume.pdf' %}">Resume</a>#}
+{#<img src="{% static 'portfolio/MHarrop.jpg' %}" alt="">#}
+{#{% for project in projects %}#}
+{#    <h2>#}
+{#        {{ project.title }}#}
+{#    </h2>#}
+{#    <p>#}
+{#        {{ project.description }}#}
+{#    </p>#}
+{#    <img src="{{ project.image.url }}" alt="[{{ project.image }}]"/>#}
+{#{% endfor %}#}
+{##}
+{% endblock %}
