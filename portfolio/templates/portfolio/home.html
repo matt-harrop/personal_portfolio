@@ -138,35 +138,56 @@
     </div>
     <div class="row">
         <div class="col-8 mx-auto">
+            <div class="row my-3 text-center">
+                <div class="col-sm-12 mx-auto gray-text">
+                    <p>If you would like to get a hold of me, please feel free to reach out via email or Linkedin (I don't really use Twitter or any social media; just not for me), or leave me a message directly using the form below.</p>
+                </div>
+            </div>
             <hr class="my-0">
             <div class="row py-5">
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ message_form.non_field_errors }}
                     <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <a href="">
+                                    Email
+                                </a>
+                            </div>
 
-                        <div class="fieldWrapper col-6 d-inline">
-                            {{ message_form.first_name.errors }}
-                            {#                        <label for="{{ message_form.first_name.id_for_label }}">First Name:</label>#}
-                            {{ message_form.first_name|as_crispy_field }}
+                            <a href="">
+                                Linkedin
+                            </a>
                         </div>
-                        <div class="fieldWrapper col-6 d-inline">
-                            {{ message_form.last_name.errors }}
-                            {#                        <label for="{{ message_form.last_name.id_for_label }}">Last Name:</label>#}
-                            {{ message_form.last_name|as_crispy_field }}
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="fieldWrapper col-6 d-inline">
+                                    {{ message_form.first_name.errors }}
+                                    {#                        <label for="{{ message_form.first_name.id_for_label }}">First Name:</label>#}
+                                    {{ message_form.first_name|as_crispy_field }}
+                                </div>
+                                <div class="fieldWrapper col-6 d-inline">
+                                    {{ message_form.last_name.errors }}
+                                    {#                        <label for="{{ message_form.last_name.id_for_label }}">Last Name:</label>#}
+                                    {{ message_form.last_name|as_crispy_field }}
+                                </div>
+                                <div class="fieldWrapper form-group">
+                                    {{ message_form.email_address.errors }}
+                                    {#                        <label for="{{ message_form.email_address.id_for_label }}">Email:</label>#}
+                                    {{ message_form.email_address|as_crispy_field }}
+                                </div>
+                                <div class="fieldWrapper form-group">
+                                    {{ message_form.content.errors }}
+                                    {#                        <label for="{{ message_form.content.id_for_label }}">Your Message:</label>#}
+                                    {{ message_form.content|as_crispy_field }}
+                                </div>
+                                <div class="col-4 ml-auto">
+                                    <input type="submit" value="Submit" class="btn btn-dark mt-3">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="fieldWrapper form-group">
-                        {{ message_form.email_address.errors }}
-{#                        <label for="{{ message_form.email_address.id_for_label }}">Email:</label>#}
-                        {{ message_form.email_address|as_crispy_field }}
-                    </div>
-                    <div class="fieldWrapper form-group">
-                        {{ message_form.content.errors }}
-{#                        <label for="{{ message_form.content.id_for_label }}">Your Message:</label>#}
-                        {{ message_form.content|as_crispy_field }}
-                    </div>
-                        <input type="submit" value="Submit" class="btn btn-dark mt-3">
 
 {#                    {{ message_form|crispy }}#}
                 </form>
