@@ -20,3 +20,11 @@
 form label {
     color: white;
 }
+
+.card-image {
+    max-height: 30vh;
+}
+
+.green-text {
+    color: #185718
+}

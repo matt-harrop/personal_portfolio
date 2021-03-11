@@ -10,33 +10,43 @@
     <div class="container" id="intro-text-container">
         <div class="row align-items-center my-auto" style="height: 100%">
             <div class="col-6 mx-auto">
-                <h1 class="display-4 text-light text-center">Matthew Harrop</h1>
+                <h1 class="display-3 text-light text-center">Matthew Harrop</h1>
                 <hr class="text-white my-3" style="height: 2px">
-                <p class="text-white text-center">Developer</p>
+                <p class="text-white text-center display-5">Online Portfolio</p>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <div id="about" class="py-4">
     <div class="container-fluid">
         <div class="row mb-4">
-            <h1 class="display-4 text-center my-0">
-                About
+            <h1 class="display-4 text-center my-0 green-text">
+                Bio
             </h1>
         </div>
         <div class="row">
             <div class="col-8 mx-auto">
                 <hr class="my-0">
-                <div class="row my-5">
-                    <div class="col-8">
-                        <p class="text-center">
-                            I am a technical guy who got a job in the IT department of the bank I was working at while putting off taking the MCAT and applying to medical school. I found that I had a lot more interest in working in computer systems and writing code than my studies and was fortunate enough to impress someone in IT enough that they recommended I take their analyst position when they got promoted.
-                        </p>
-                        <p>I have now worked as a systems analyst, an applications engineer, and now even have the uncommon privilege of working on an IBM Power System. I worked as a developer briefly and am finishing up my master's in software engineering, and looking forward to working through the list of personal software projects that I've come up with over the last few years.</p>
+                <div class="row my-5 align-items-center">
+                    <div class="col-sm-4">
+                        <div class="">
+                            <h5 class="green-text">About Me</h5>
+                            <p class="text-center">
+                                I'm an all-around IT-guy with a few years experience supporting the technical side of banks and writing software. I've dabbled in just about everything and am looking forward to a long career of exciting software projects.
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <img src="{% static 'portfolio/mharrop2.png' %}" alt="" style="width: 100%">
+                    <div class="col-sm-4 text-center">
+                        <img src="{% static 'portfolio/mharrop2.png' %}" alt="" class="img-fluid" style="height: ">
+                    </div>
+                    <div class="col-sm-4">
+                        <h5 class="green-text">Fun Facts</h5>
+                        <p><b>Located:</b></p>
+                        <p>Pacific Northwest</p>
+                        <p><b>Interests:</b></p>
+                        <p>Writing, Robotics, Woodworking</p>
                     </div>
                 </div>
             </div>
@@ -46,14 +56,14 @@
 
 <div id="experience" class="container-fluid py-4">
     <div class="row my-4">
-        <h1 class="display-4 text-center my-0">
+        <h1 class="display-2 text-center my-0 green-text">
             Experience
         </h1>
     </div>
     <div class="col-8 mx-auto">
         <hr>
         <div class="row">
-            <h1 class="display-5 my-5">
+            <h1 class="display-5 my-5 green-text">
                 Work
             </h1>
         </div>
@@ -73,7 +83,7 @@
         {% endfor %}
         <div class="row">
             <hr>
-            <h1 class="display-5 my-5">
+            <h1 class="display-5 my-5 green-text">
                 Education
             </h1>
         </div>
@@ -102,17 +112,17 @@
     </div>
     <div class="row">
         <div class="col-8 mx-auto">
-            <hr class="my-0">
+            <hr class="mb-5">
             <div class="row">
                 {% for project in projects %}
-                    <div class="col-6">
-                        <h2>
-                            {{ project.title }}
-                        </h2>
-                        <p>
-                            {{ project.description }}
-                        </p>
-                        <img src="{{ project.image.url }}" alt="[{{ project.image }}]"/>
+                    <div class="col-6 p-4">
+                        <div class="card">
+                            <img class="card-img-top card-image" src="{{ project.image.url }}" alt="[{{ project.image }}]"/>
+                            <div class="card-body">
+                                <h2>{{ project.title }}</h2>
+                                <p>{{ project.description }}</p>
+                            </div>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
