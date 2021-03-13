@@ -33,7 +33,7 @@
                     <div class="col-sm-4">
                         <div class="">
                             <h5 class="green-text">About Me</h5>
-                            <p class="text-center">
+                            <p class="justified">
                                 I'm an all-around IT-guy with a few years experience supporting the technical side of banks and writing software. I've dabbled in just about everything and am looking forward to a long career of exciting software projects.
                             </p>
                         </div>
@@ -47,6 +47,8 @@
                         <p>Pacific Northwest</p>
                         <p><b>Interests:</b></p>
                         <p>Writing, Robotics, Woodworking</p>
+                        <p><b>Long-Term Plans:</b></p>
+                        <p>Write novels, create mobile apps/games, build robots.</p>
                     </div>
                 </div>
             </div>
@@ -145,53 +147,56 @@
             </div>
             <hr class="my-0">
             <div class="row py-5">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    {{ message_form.non_field_errors }}
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="row">
-                                <a href="">
-                                    Email
+                <div class="col-sm-9 mx-auto">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ message_form.non_field_errors }}
+                        <div class="row">
+                            <div class="fieldWrapper col-6 d-inline">
+                                {{ message_form.first_name.errors }}
+                                {#                        <label for="{{ message_form.first_name.id_for_label }}">First Name:</label>#}
+                                {{ message_form.first_name|as_crispy_field }}
+                            </div>
+                            <div class="fieldWrapper col-6 d-inline">
+                                {{ message_form.last_name.errors }}
+                                {#                        <label for="{{ message_form.last_name.id_for_label }}">Last Name:</label>#}
+                                {{ message_form.last_name|as_crispy_field }}
+                            </div>
+                            <div class="fieldWrapper form-group">
+                                {{ message_form.email_address.errors }}
+                                {#                        <label for="{{ message_form.email_address.id_for_label }}">Email:</label>#}
+                                {{ message_form.email_address|as_crispy_field }}
+                            </div>
+                            <div class="fieldWrapper form-group">
+                                {{ message_form.content.errors }}
+                                {#                        <label for="{{ message_form.content.id_for_label }}">Your Message:</label>#}
+                                {{ message_form.content|as_crispy_field }}
+                            </div>
+                            <div class="col-4 ml-auto">
+                                <input type="submit" value="Submit" class="btn btn-dark mt-3">
+                            </div>
+                        </div>
+
+                        {#                    {{ message_form|crispy }}#}
+                    </form>
+                </div>
+                <div class="row mt-4">
+                    <hr>
+                    <div class="col-3 mx-auto">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <a href="https://www.linkedin.com/in/matthew-harrop-787155156" target="_blank" class="gray-text d-inline mr-auto">
+                                    <span class="bi bi-linkedin display-5"></span>
                                 </a>
                             </div>
-
-                            <a href="">
-                                Linkedin
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="row">
-                                <div class="fieldWrapper col-6 d-inline">
-                                    {{ message_form.first_name.errors }}
-                                    {#                        <label for="{{ message_form.first_name.id_for_label }}">First Name:</label>#}
-                                    {{ message_form.first_name|as_crispy_field }}
-                                </div>
-                                <div class="fieldWrapper col-6 d-inline">
-                                    {{ message_form.last_name.errors }}
-                                    {#                        <label for="{{ message_form.last_name.id_for_label }}">Last Name:</label>#}
-                                    {{ message_form.last_name|as_crispy_field }}
-                                </div>
-                                <div class="fieldWrapper form-group">
-                                    {{ message_form.email_address.errors }}
-                                    {#                        <label for="{{ message_form.email_address.id_for_label }}">Email:</label>#}
-                                    {{ message_form.email_address|as_crispy_field }}
-                                </div>
-                                <div class="fieldWrapper form-group">
-                                    {{ message_form.content.errors }}
-                                    {#                        <label for="{{ message_form.content.id_for_label }}">Your Message:</label>#}
-                                    {{ message_form.content|as_crispy_field }}
-                                </div>
-                                <div class="col-4 ml-auto">
-                                    <input type="submit" value="Submit" class="btn btn-dark mt-3">
-                                </div>
+                            <div class="col-6 text-center">
+                                <a href="" class="gray-text d-inline ml-auto">
+                                    <span class="bi bi-envelope display-5"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
-
-{#                    {{ message_form|crispy }}#}
-                </form>
-            </div>
+                </div>
         </div>
     </div>
 </div>
