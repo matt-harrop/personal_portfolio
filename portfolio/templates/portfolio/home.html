@@ -137,21 +137,23 @@
 
 <div id="contact" class="container-fluid">
     <div class="row mb-4 my-4 pt-4">
-        <h1 class="display-4 text-center text-white">
-            Contact
-        </h1>
+        <div class="col-8 mx-auto">
+            <h1 class="display-4 text-center text-white">
+                Contact
+            </h1>
+            <hr class="my-0">
+        </div>
     </div>
     <div class="row">
-        <div class="col-8 mx-auto">
+        <div class="col-md-8 mx-auto">
             <div class="row my-3 text-center">
                 <div class="col-sm-12 mx-auto gray-text">
                     <p>If you would like to get a hold of me, please feel free to reach out via email or Linkedin (I don't really use Twitter or any social media; just not for me), or leave me a message directly using the form below.</p>
                 </div>
             </div>
-            <hr class="my-0">
             <div class="row py-5">
-                <div class="col-sm-9 mx-auto">
-                    <form action="" method="post">
+                <div class="col-md-9 mx-auto">
+                    <form action="" method="post" class="px-2">
                         {% csrf_token %}
                         {{ message_form.non_field_errors }}
                         <div class="row">
