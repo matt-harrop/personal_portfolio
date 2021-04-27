@@ -2,9 +2,13 @@ a {
     font-size: x-large;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .intro {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: url("mountain_sunset.jpg") no-repeat;
     background-position: center;
     background-size: cover;
@@ -29,6 +33,10 @@ form label {
     color: white;
 }
 
+.full-height {
+    height: 100%;
+}
+
 .card-image {
     max-height: 30vh;
 }
@@ -41,7 +49,50 @@ form label {
     color: lightgray;
 }
 
+.intro-small-row {
+    height: 80px;
+}
+
+.intro-big-row {
+    height: calc(100% - 160px);
+}
+
+#intro-scroll-button {
+    height: 80px;
+    width: 110px;
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+    background-color: black;
+    text-align: center;
+}
+
 .justified {
     text-align: justify;
     text-justify: inter-word;
+}
+
+/*Trying to make the chevron arrow in the little black box bounce up and down*/
+
+/*a div i {*/
+/*    display: inline-block;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+#bouncing-arrow {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.bounce {
+    -webkit-animation: bounce 1s infinite  alternate;
+    animation: bounce 1s infinite  alternate;
+}
+@-webkit-keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(15px); }
+}
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(15px); }
 }
