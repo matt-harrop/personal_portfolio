@@ -7,7 +7,7 @@
 {% load crispy_forms_tags %}
 
 <div class="intro">
-    <div class="container" id="intro-text-container">
+    <div class="container-fluid" id="intro-text-container">
         <div class="row intro-small-row"></div>
         <div class="row align-items-center my-auto intro-big-row">
             <div class="col-md-6 mx-auto">
@@ -17,8 +17,10 @@
             </div>
         </div>
         <div class="row intro-small-row">
-            <div class="col-auto ms-auto">
-                <a id="intro-scroll-button" href="#about">
+            <div class="col-2"></div>
+            <div class="col-sm-8 ms-auto"></div>
+            <div class="col-2">
+                <a id="intro-scroll-button" href="#about" class="">
                     <div class="h-100 bounce">
                         <i id="bouncing-arrow" class="bi bi-chevron-down text-white"></i>
                     </div>
@@ -28,15 +30,14 @@
     </div>
 </div>
 
-<div id="about" class="py-4">
+<div id="about" class="">
     <div class="container-fluid">
-        <div class="row mb-4">
-            <h1 class="display-4 text-center my-0 green-text">
-                Bio
-            </h1>
-        </div>
         <div class="row">
-            <div class="col-8 mx-auto">
+            <div class="col-2"></div>
+            <div class="col-8 py-4">
+                <h1 class="display-4 text-center my-0 green-text mb-4">
+                    Bio
+                </h1>
                 <hr class="my-0">
                 <div class="row my-5 align-items-center">
                     <div class="col-sm-4">
@@ -59,6 +60,30 @@
                         <p><b>Long-Term Plans:</b></p>
                         <p>Write novels, create mobile apps/games, build robots.</p>
                     </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div id="floatingNavBar" class="">
+                    <a class="nav-button" href="#about">
+                        <p class="my-auto d-block">
+                            Bio
+                        </p>
+                    </a>
+                    <a class="nav-button" href="#experience">
+                        <p class="my-auto d-block">
+                            Experience
+                        </p>
+                    </a>
+                    <a class="nav-button" href="#projects">
+                        <p class="my-auto d-block">
+                            Projects
+                        </p>
+                    </a>
+                    <a class="nav-button" href="#contact">
+                        <p class="my-auto d-block">
+                            Contact
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>
