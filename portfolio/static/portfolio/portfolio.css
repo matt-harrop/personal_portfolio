@@ -92,6 +92,10 @@ form label {
     text-align: center;
 }
 
+.nav-button-highlighted {
+    background-color: #185718;
+}
+
 .nav-button:hover {
     color: darkgray;
 }
