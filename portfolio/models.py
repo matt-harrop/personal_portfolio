@@ -24,6 +24,9 @@ class Experience(models.Model):
     def __str__(self):
         return self.institution + " - " + self.title
 
+    class Meta:
+        ordering = ['-end_date']
+
 
 class Message(models.Model):
     first_name = models.CharField(max_length=100)
