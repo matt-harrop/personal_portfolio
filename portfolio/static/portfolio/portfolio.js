@@ -56,4 +56,5 @@ function updateHighlightedNavButton() {
     } else {
         contactNavButton.classList.remove('nav-button-highlighted');
     }
+
 }
