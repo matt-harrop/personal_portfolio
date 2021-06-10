@@ -10,6 +10,10 @@ const projectsNavButton = document.querySelector("#projectsNavButton");
 const contactNavButton = document.querySelector("#contactNavButton");
 const experienceNavButton = document.querySelector("#experienceNavButton");
 
+const projectImageOverlays = document.querySelectorAll(".project-image > .overlay");
+
+const projects = loadJson('#project-json-data');
+
 let previousBioDivY = bioDiv.getBoundingClientRect().y;
 const navBarTopBuffer = 20;
 
@@ -31,6 +35,27 @@ document.addEventListener('scroll', function(e) {
     updateHighlightedNavButton();
 
 });
+
+for (const element of projectImageOverlays) {
+    element.addEventListener('mouseover', function(e) {
+        for (const child of element.children) {
+            child.hidden = false;
+        }
+    });
+    element.addEventListener('mouseleave', function(e) {
+        for (const child of element.children) {
+            child.hidden = true;
+        }
+    });
+    //Make each image overlay a link (if it has a good URL?):
+    element.addEventListener('click', function(e) {
+        // location.href =
+    })
+}
+
+function loadJson(selector) {
+  return JSON.parse(document.querySelector(selector).getAttribute('data-json'));
+}
 
 function updateHighlightedNavButton() {
 
