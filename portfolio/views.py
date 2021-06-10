@@ -1,3 +1,6 @@
+from json import dumps
+
+from django.core import serializers
 from django.core.mail import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -36,7 +39,11 @@ def home(request):
     projects = Project.objects.all()
     experiences = Experience.objects.all()
     message_form = MessageForm()
+    # projectsJSON = dumps(projects)
+    projectsJSON = serializers.serialize('json', projects)
+    print(projectsJSON)
     return render(request, 'portfolio/home.html', {
         'projects': projects,
+        'projectsJSON': projectsJSON,
         'experiences': experiences,
         'message_form': message_form})
