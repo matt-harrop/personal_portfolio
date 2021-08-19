@@ -119,7 +119,11 @@
                 <div class="row mb-5">
                     <div class="col-4">
                         <p><b>{{ experience.institution}}</b></p>
-                        <p>{{ experience.start_date|date:"M Y" }} - {{ experience.end_date|date:"M Y"  }}</p>
+                        {% if experience.current %}
+                            <p>{{ experience.start_date|date:"M Y" }} - Current</p>
+                        {% else %}
+                            <p>{{ experience.start_date|date:"M Y" }} - {{ experience.end_date|date:"M Y" }}</p>
+                        {% endif %}
                     </div>
                     <div class="col-8">
                         <p><b>{{ experience.title }}</b></p>
