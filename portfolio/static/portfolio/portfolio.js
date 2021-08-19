@@ -12,6 +12,9 @@ const experienceNavButton = document.querySelector("#experienceNavButton");
 
 const projectImageOverlays = document.querySelectorAll(".project-image > .overlay");
 
+const contactForm = document.querySelector('#contactForm')
+const formSubmitButton = document.querySelector('#contactFormSubmitButton')
+
 const projects = loadJson('#project-json-data');
 
 let previousBioDivY = bioDiv.getBoundingClientRect().y;
@@ -82,3 +85,22 @@ function updateHighlightedNavButton() {
         contactNavButton.classList.remove('nav-button-highlighted');
     }
 }
+
+contactForm.addEventListener('submit', function(e) {
+    formSubmitButton.setAttribute('value', 'Sending...');
+    const formData = new FormData(contactForm);
+    console.log(formData.values())
+    e.preventDefault();
+
+    axios.post('save_message', formData)
+        .then((res) => {
+            contactForm.hidden = true;
+            document.querySelector('.alert-success').hidden = false;
+        })
+        .catch((error) => {
+            console.log(error)
+            contactForm.hidden = true;
+            document.querySelector('.alert-danger').hidden = false;
+        })
+    }
+)
