@@ -19,7 +19,7 @@ numpy==1.21.4
 opencv-python-headless==4.5.4.58
 packaging==21.3
 pendulum==2.1.2
-Pillow==8.4.0
+Pillow==9.0.1
 pip-review==1.1.0
 prompt-toolkit==3.0.22
 psycopg2-binary==2.9.2
